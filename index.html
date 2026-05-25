@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: white;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body{
+        background-color: black;
+      }
+      .clock {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 200px;
+        font-weight: 700;
+      }
+      #button {
+        background-color: transparent;
+        position: absolute;
+        bottom: 48px;
+        border: 1px solid rgb(70, 70, 70);
+        padding: 8px 16px 8px 16px;
+      }
+
+      #button:hover {
+        border: 1px solid rgb(103, 103, 103);
+        cursor: pointer;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <p></p>
+      <button id="button">view Full screen</button>
+    </div>
+  </body>
+  <script>
+    const ele = document.querySelector(".clock p");
+    const btn = document.querySelector("#button");
+    setInterval(() => {
+      const date = new Date();
+      const inject = date.toLocaleTimeString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      });
+      ele.innerHTML = inject;
+    }, 1000);
+
+    btn.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        btn.innerText = "Exit Fullscreen";
+      } else {
+        document.exitFullscreen();
+        btn.innerText = "View Fullscreen";
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      btn.innerText = document.fullscreenElement
+        ? "Exit Fullscreen"
+        : "View Fullscreen";
+    });
+  </script>
+</html>
