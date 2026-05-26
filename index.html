@@ -13,7 +13,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
-      body{
+      body {
         background-color: black;
       }
       .clock {
@@ -38,7 +38,6 @@
         border: 1px solid rgb(103, 103, 103);
         cursor: pointer;
       }
-      
     </style>
   </head>
   <body>
@@ -47,35 +46,6 @@
       <button id="button">view Full screen</button>
     </div>
   </body>
-  <script>
-    const ele = document.querySelector(".clock p");
-    const btn = document.querySelector("#button");
-    setInterval(() => {
-      const date = new Date();
-      const inject = date.toLocaleTimeString("en-IN", {
-        timeZone: "Asia/Kolkata",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true,
-      });
-      ele.innerHTML = inject;
-    }, 1000);
 
-    btn.addEventListener("click", () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-        btn.innerText = "Exit Fullscreen";
-      } else {
-        document.exitFullscreen();
-        btn.innerText = "View Fullscreen";
-      }
-    });
-
-    document.addEventListener("fullscreenchange", () => {
-      btn.innerText = document.fullscreenElement
-        ? "Exit Fullscreen"
-        : "View Fullscreen";
-    });
-  </script>
+  <script src="script.js"></script>
 </html>
