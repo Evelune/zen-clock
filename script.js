@@ -12,18 +12,27 @@ setInterval(() => {
   ele.innerHTML = inject;
 }, 1000);
 
-btn.addEventListener("click", () => {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
-    btn.innerText = "Exit Fullscreen";
-  } else {
-    document.exitFullscreen();
-    btn.innerText = "View Fullscreen";
-  }
+
+
+// To check and set the button text based on fullScreenElement Status
+btn.addEventListener("click",()=>{
+    if(document.fullscreenElement){
+        document.exitFullscreen();
+        btn.innerHTML = "View Fullscreen"
+    }
+    else{
+        document.documentElement.requestFullscreen();
+        btn.innerHTML = "Exit Fullscreen"
+    }
+})
+
+// Here fullscreenchange is the Event activity whenever the fullscreenchange state change, this eventlisten run
+document.addEventListener("fullscreenchange",()=>{
+    btn.innerText = document.fullscreenElement? "Exit Fullscreen" : "View Fullscreen";
 });
 
-document.addEventListener("fullscreenchange", () => {
-  btn.innerText = document.fullscreenElement
-    ? "Exit Fullscreen"
-    : "View Fullscreen";
-});
+
+
+
+
+
