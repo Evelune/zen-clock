@@ -3,52 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Zen-G</title>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        color: white;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
       body {
-        background-color: black;
+        background-color: white;
+        color: black;
       }
+      body {
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      body.dark {
+        background-color: black;
+        color: white;
+      }
+
       .clock {
+        position: relative;
+
         width: 100vw;
         height: 100vh;
+
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
+
         font-size: 200px;
         font-weight: 700;
       }
-      #button {
-        background-color: transparent;
+
+      #cta {
+        display: flex;
+        gap: 24px;
+
         position: absolute;
         bottom: 48px;
-        border: 1px solid rgb(70, 70, 70);
-        padding: 8px 16px 8px 16px;
       }
 
-      #button:hover {
+      #viewScreen {
+        background-color: transparent;
+        border: 1px solid rgb(70, 70, 70);
+        padding: 8px 16px 8px 16px;
+        color: inherit;
+      }
+
+      #theme {
+        background-color: transparent;
+        border: 1px solid rgb(70, 70, 70);
+        padding: 8px 16px 8px 16px;
+        color: inherit;
+      }
+
+      #viewScreen:hover {
         border: 1px solid rgb(103, 103, 103);
         cursor: pointer;
       }
 
-      #button {
+      #viewScreen {
         transition: opacity 0.3s ease;
       }
-      
     </style>
   </head>
   <body>
     <div class="clock">
       <p></p>
-      <button id="button">view Full screen</button>
+      <div id="cta">
+        <button id="viewScreen">view Full screen</button>
+        <select name="" id="theme">
+          <option value="darkTheme" selected>Dark Theme</option>
+          <option value="lightTheme" selected>Light Theme</option>
+          <!-- <option value="systemTheme">System Theme</option> -->
+        </select>
+      </div>
     </div>
   </body>
 
