@@ -25,11 +25,14 @@ btn.addEventListener("click", () => {
 
 // Here fullscreenchange is the Event activity whenever the fullscreenchange state change, this eventlisten run
 document.addEventListener("fullscreenchange", () => {
-  ((btn.innerText = document.fullscreenElement
+  btn.innerText = document.fullscreenElement
     ? "Exit Fullscreen"
-    : "View Fullscreen"),
-    (btn.style.opacity = "1"),
-    (theme.style.opacity = "1"));
+    : "View Fullscreen";
+
+  btn.style.opacity = "1";
+  theme.style.opacity = "1";
+
+  clearTimeout(timer);
 });
 
 let timer;
@@ -59,6 +62,7 @@ const theme = document.querySelector("#theme");
 theme.addEventListener("change", () => {
   setTheme(theme.value);
 });
+
 function setTheme(value) {
   if (value === "darkTheme") {
     document.body.classList.add("dark");
@@ -66,3 +70,7 @@ function setTheme(value) {
     document.body.classList.remove("dark");
   }
 }
+const chevron = document.querySelector("#chevron");
+theme.addEventListener("click", () => {
+  chevron.classList.toggle("rotate");
+});

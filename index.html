@@ -4,86 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zen-G</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      body {
-        background-color: white;
-        color: black;
-      }
-      body {
-        transition:
-          background-color 0.3s ease,
-          color 0.3s ease;
-      }
-
-      body.dark {
-        background-color: black;
-        color: white;
-      }
-
-      .clock {
-        position: relative;
-
-        width: 100vw;
-        height: 100vh;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 200px;
-        font-weight: 700;
-      }
-
-      #cta {
-        display: flex;
-        gap: 24px;
-
-        position: absolute;
-        bottom: 48px;
-      }
-
-      #viewScreen {
-        background-color: transparent;
-        border: 1px solid rgb(70, 70, 70);
-        padding: 8px 16px 8px 16px;
-        color: inherit;
-      }
-
-      #theme {
-        background-color: transparent;
-        border: 1px solid rgb(70, 70, 70);
-        padding: 8px 16px 8px 16px;
-        color: inherit;
-      }
-
-      #viewScreen:hover {
-        border: 1px solid rgb(103, 103, 103);
-        cursor: pointer;
-      }
-
-      #viewScreen {
-        transition: opacity 0.3s ease;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="clock">
-      <p></p>
+    <div class="view">
+      <div class="clock">
+        <p></p>
+      </div>
       <div id="cta">
         <button id="viewScreen">view Full screen</button>
-        <select name="" id="theme">
-          <option value="darkTheme" selected>Dark Theme</option>
-          <option value="lightTheme" selected>Light Theme</option>
-          <!-- <option value="systemTheme">System Theme</option> -->
-        </select>
+        <div class="wrapper">
+          <select id="theme">
+            <option value="darkTheme">Dark Theme</option>
+            <option value="lightTheme" selected>Light Theme</option>
+          </select>
+          <img src="resource/chevron.svg" alt="chevronIcon" id="chevron" />
+        </div>
       </div>
     </div>
   </body>
